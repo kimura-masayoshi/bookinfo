@@ -3,7 +3,7 @@ name: Convert OpenAPI Spec to Kong and Deploy
 on:
   push:
     paths:
-      - docs/openapi/api-spec.yaml
+      - openapi.yaml
 
 env:
   KONNECT_URL: "https://${{ vars.KONNECT_REGION }}.api.konghq.com"
@@ -16,7 +16,7 @@ jobs:
     container:
       image: kong/inso
     env:
-      SPECFILE: "docs/openapi/api-spec.yaml"
+      SPECFILE: "openapi.yaml"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
       image: kong/deck
       options: --user root
     env:
-      SPECFILE: "docs/openapi/api-spec.yaml"
+      SPECFILE: "openapi.yaml"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

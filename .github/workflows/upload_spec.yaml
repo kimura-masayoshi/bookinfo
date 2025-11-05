@@ -33,10 +33,10 @@ jobs:
           apt-get install -y curl jq
           curl -sL https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -o /usr/local/bin/yq
           chmod +x /usr/local/bin/yq
-      - name: Upload api-spec.yaml
+      - name: Upload openapi.yaml
         shell: bash
         run: |
-          file="docs/openapi/api-spec.yaml"
+          file="openapi.yaml"
           msg="Document '$file' has been successfully uploaded."
           return_code=0
           set -x

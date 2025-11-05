@@ -3,7 +3,7 @@ name: Upload Document for API Product to Konnect / Dev Portal
 on:
   push:
     paths:
-      - docs/product.md
+      - README.md
 
 env:
   REGIONAL_EP: "https://${{ vars.KONNECT_REGION }}.api.konghq.com/v3"
@@ -22,10 +22,10 @@ jobs:
         run: |
           apt-get update -y
           apt-get install -y curl jq
-      - name: Upload product.md
+      - name: Upload README.md
         shell: bash
         run: |
-          file="docs/product.md"
+          file="README.md"
           msg="Document '$file' has been successfully uploaded."
           return_code=0
           set -x
