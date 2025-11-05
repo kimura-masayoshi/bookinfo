@@ -89,4 +89,4 @@ jobs:
 
       - name: Confirmation
         run: |
-          ./tests/e2e.sh nothing
+          chmod +x ./tests/e2e.sh nothing
