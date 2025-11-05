@@ -1,0 +1,14 @@
+_format_version: "1.0"
+add-plugins:
+- selectors:
+  - $
+  overwrite: false
+  plugins:
+    - name: acl
+      service: bookinfo-api
+      config:
+        allow:
+          - group1
+          - group2
+        deny:
+          - blocked-group
