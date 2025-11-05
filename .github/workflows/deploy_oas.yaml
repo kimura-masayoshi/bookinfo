@@ -89,7 +89,7 @@ jobs:
 
       - name: kengen
         run: |
-          chmod +x ./tests/e2e.sh nothing
+          chmod +x ./tests/e2e.sh
 
       - name: Confirmation
         run: |
