@@ -87,7 +87,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: kengen
+      - name: Authe2e
         run: |
           chmod +x ./tests/e2e.sh
 
