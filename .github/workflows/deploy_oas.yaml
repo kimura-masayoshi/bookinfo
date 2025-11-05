@@ -87,6 +87,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Confirmation
+      - name: kengen
         run: |
           chmod +x ./tests/e2e.sh nothing
+
+      - name: Confirmation
+        run: |
+          ./tests/e2e.sh nothing
