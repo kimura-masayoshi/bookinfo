@@ -9,6 +9,4 @@ add-plugins:
       config:
         allow:
           - group1
-          - group2
         deny:
-          - blocked-group
