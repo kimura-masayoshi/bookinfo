@@ -31,7 +31,7 @@ jobs:
           done
 
       - name: Run inso lint
-        run: inso lint spec $SPECFILE --workingDir . --verbose
+        run: inso lint spec --src $SPECFILE --verbose
 
   deploy-oas:
     runs-on: self-hosted
@@ -55,7 +55,7 @@ jobs:
           done
 
       - name: Run inso lint
-        run: inso lint spec $SPECFILE --workingDir . --verbose
+        run: inso lint spec --src $SPECFILE --verbose
 
       - name: Convert from OpenAPI Spec to Kong Config
         run: |
@@ -118,7 +118,7 @@ jobs:
           done
 
       - name: Run inso lint
-        run: inso lint spec $SPECFILE --workingDir . --verbose
+        run: inso lint spec --src $SPECFILE --verbose
 
       - name: Authe2e
         run: |
