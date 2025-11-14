@@ -31,7 +31,7 @@ jobs:
           done
 
       - name: Run inso lint
-        run: inso lint spec $SPECFILE --verbose
+        run: inso lint spec $SPECFILE --workingDir . --verbose
 
   deploy-oas:
     runs-on: self-hosted
@@ -118,7 +118,7 @@ jobs:
           done
 
       - name: Run inso lint
-        run: inso lint spec $SPECFILE --verbose
+        run: inso lint spec $SPECFILE --workingDir . --verbose
 
       - name: Authe2e
         run: |
