@@ -30,8 +30,11 @@ jobs:
             sleep 15
           done
 
-      - name: Run inso lint
-        run: inso lint spec --src $SPECFILE --verbose
+      - name: Install OpenAPI CLI
+        run: npm install -g @redocly/openapi-cli
+
+      - name: Lint OpenAPI Spec
+        run: openapi lint openapi.yaml
 
   deploy-oas:
     runs-on: self-hosted
@@ -53,9 +56,6 @@ jobs:
             echo "Retrying in 15 seconds..."
             sleep 15
           done
-
-      - name: Run inso lint
-        run: inso lint spec --src $SPECFILE --verbose
 
       - name: Convert from OpenAPI Spec to Kong Config
         run: |
@@ -117,8 +117,11 @@ jobs:
             sleep 15
           done
 
-      - name: Run inso lint
-        run: inso lint spec --src $SPECFILE --verbose
+      - name: Install OpenAPI CLI
+        run: npm install -g @redocly/openapi-cli
+
+      - name: Lint OpenAPI Spec
+        run: openapi lint openapi.yaml
 
       - name: Authe2e
         run: |
