@@ -28,6 +28,7 @@ jobs:
             fi
             echo "Retrying in 15 seconds..."
             sleep 15
+          done
 
       - name: Run inso lint
         run: inso lint spec $SPECFILE --verbose
@@ -51,6 +52,7 @@ jobs:
             fi
             echo "Retrying in 15 seconds..."
             sleep 15
+          done
 
       - name: Run inso lint
         run: inso lint spec $SPECFILE --verbose
@@ -113,6 +115,7 @@ jobs:
             fi
             echo "Retrying in 15 seconds..."
             sleep 15
+          done
 
       - name: Run inso lint
         run: inso lint spec $SPECFILE --verbose
