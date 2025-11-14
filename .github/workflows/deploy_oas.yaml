@@ -55,7 +55,7 @@ jobs:
           done
 
       - name: Run inso lint
-        run: inso lint spec $SPECFILE --verbose
+        run: inso lint spec $SPECFILE --workingDir . --verbose
 
       - name: Convert from OpenAPI Spec to Kong Config
         run: |
