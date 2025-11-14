@@ -20,19 +20,14 @@ jobs:
     steps:
       - name: Checkout with retry
         run: |
+          set -e
           for i in {1..5}; do
-            echo "Attempt $i: Downloading repository tarball"
-            if curl --retry 5 --retry-delay 10 -L \
-              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              https://api.github.com/repos/${{ github.repository }}/tarball/${{ github.sha }} \
-              -o repo.tar.gz; then
-              tar -xzf repo.tar.gz --strip-components=1
-              echo "Checkout succeeded"
+            echo "Attempt $i: actions/checkout"
+            if gh workflow run; then
               break
             fi
-            echo "Retrying in 10 seconds..."
-            sleep 10
-          done
+            echo "Retrying in 15 seconds..."
+            sleep 15
 
       - name: Run inso lint
         run: inso lint spec $SPECFILE --verbose
@@ -48,19 +43,17 @@ jobs:
     steps:
       - name: Checkout with retry
         run: |
+          set -e
           for i in {1..5}; do
-            echo "Attempt $i: Downloading repository tarball"
-            if curl --retry 5 --retry-delay 10 -L \
-              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              https://api.github.com/repos/${{ github.repository }}/tarball/${{ github.sha }} \
-              -o repo.tar.gz; then
-              tar -xzf repo.tar.gz --strip-components=1
-              echo "Checkout succeeded"
+            echo "Attempt $i: actions/checkout"
+            if gh workflow run; then
               break
             fi
-            echo "Retrying in 10 seconds..."
-            sleep 10
-          done
+            echo "Retrying in 15 seconds..."
+            sleep 15
+
+      - name: Run inso lint
+        run: inso lint spec $SPECFILE --verbose
 
       - name: Convert from OpenAPI Spec to Kong Config
         run: |
@@ -112,19 +105,17 @@ jobs:
     steps:
       - name: Checkout with retry
         run: |
+          set -e
           for i in {1..5}; do
-            echo "Attempt $i: Downloading repository tarball"
-            if curl --retry 5 --retry-delay 10 -L \
-              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              https://api.github.com/repos/${{ github.repository }}/tarball/${{ github.sha }} \
-              -o repo.tar.gz; then
-              tar -xzf repo.tar.gz --strip-components=1
-              echo "Checkout succeeded"
+            echo "Attempt $i: actions/checkout"
+            if gh workflow run; then
               break
             fi
-            echo "Retrying in 10 seconds..."
-            sleep 10
-          done
+            echo "Retrying in 15 seconds..."
+            sleep 15
+
+      - name: Run inso lint
+        run: inso lint spec $SPECFILE --verbose
 
       - name: Authe2e
         run: |
