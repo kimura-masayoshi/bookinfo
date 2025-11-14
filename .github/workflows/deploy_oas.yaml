@@ -30,11 +30,8 @@ jobs:
             sleep 15
           done
 
-      - name: Install OpenAPI CLI
-        run: npm install -g @redocly/openapi-cli
-
-      - name: Lint OpenAPI Spec
-        run: openapi lint openapi.yaml
+      - name: Run inso lint
+        run: inso lint spec $SPECFILE --verbose
 
   deploy-oas:
     runs-on: self-hosted
@@ -117,11 +114,8 @@ jobs:
             sleep 15
           done
 
-      - name: Install OpenAPI CLI
-        run: npm install -g @redocly/openapi-cli
-
-      - name: Lint OpenAPI Spec
-        run: openapi lint openapi.yaml
+      - name: Run inso lint
+        run: inso lint spec $SPECFILE --verbose
 
       - name: Authe2e
         run: |
