@@ -13,10 +13,6 @@ env:
 jobs:
   lint-spec:
     runs-on: ubuntu-latest
-    container:
-      image: kong/inso
-    env:
-      SPECFILE: "openapi.yaml"
     steps:
       - name: Checkout with retry
         run: |
