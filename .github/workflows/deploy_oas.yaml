@@ -25,7 +25,7 @@ jobs:
         run: inso lint spec $SPECFILE --verbose
 
   deploy-oas:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: lint-spec
     container:
       image: kong/deck
@@ -79,7 +79,7 @@ jobs:
             --select-tag $TAG
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: deploy-oas
     container:
       image: ubuntu
